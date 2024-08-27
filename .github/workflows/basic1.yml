@@ -1,0 +1,23 @@
+name: basic1
+
+on: workflow_dispatch
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    env:
+      APP: v1
+    steps:
+      - run: echo "${{ github.action }}, ${{ github.actor }}"
+        id: first step
+      - run: echo "${{ github.repository }}, ${{ github.ref }}"
+      - run: echo "${{ github.workspace }}"
+      - run: echo "${{ runner.os }}"
+      - run: echo "${{ job.status }}"
+      - run: echo "${{ github.event }}"
+      - run: echo "${{ env.APP }}"
+
+  job2:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "${{ vars.TITLE }}"
