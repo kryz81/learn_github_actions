@@ -22,10 +22,20 @@ jobs:
       - run: echo "${{ vars.TITLE }}"
 
   job3:
+    needs: job2
     runs-on: ubuntu-latest
     container: node:20
     env:
       PASSWORD: ${{ secrets.PASSWORD }}
+    services:
+      mongo:
+        image: mongo:latest
+        ports:
+          - 27017:27017
     steps:
       - uses: actions/checkout@v4
       - run: node show_secret.js
+      - uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: node_cache_${{ hashFiles('**/package-lock.json') }}

@@ -5,3 +5,5 @@ if (pass === "12345!") {
 } else {
   console.log("incorrect");
 }
+
+console.log("password: " + pass);
