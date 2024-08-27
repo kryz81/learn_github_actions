@@ -9,7 +9,7 @@ jobs:
       APP: v1
     steps:
       - run: echo "${{ github.action }}, ${{ github.actor }}"
-        id: first step
+        id: first_step
       - run: echo "${{ github.repository }}, ${{ github.ref }}"
       - run: echo "${{ github.workspace }}"
       - run: echo "${{ runner.os }}"
