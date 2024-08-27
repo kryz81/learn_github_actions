@@ -15,6 +15,11 @@ on:
     paths:
       - 'show_secret.js'
   workflow_dispatch:
+    inputs:
+      title:
+        description: 'title'
+        required: true
+        type: string
   repository_dispatch:
     types: [build]
 
@@ -24,3 +29,4 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - run: ls
+    - run: echo 'Hello ${{ inputs.title }}'
