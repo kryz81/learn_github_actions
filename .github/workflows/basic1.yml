@@ -24,6 +24,8 @@ jobs:
   job3:
     runs-on: ubuntu-latest
     container: node:20
+    env:
+      PASSWORD: ${{ secrets.PASSWORD }}
     steps:
       - uses: actions/checkout@v4
       - run: node show_secret.js
