@@ -14,10 +14,15 @@ jobs:
       - run: echo "${{ github.workspace }}"
       - run: echo "${{ runner.os }}"
       - run: echo "${{ job.status }}"
-      - run: echo "${{ toJSON(github.event) }}"
       - run: echo "${{ env.APP }}"
 
   job2:
     runs-on: ubuntu-latest
     steps:
       - run: echo "${{ vars.TITLE }}"
+
+  job3:
+    runs-on: ubuntu-latest
+    container: node:20
+    steps:
+      - run: node show_secret.js
