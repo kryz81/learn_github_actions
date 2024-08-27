@@ -14,7 +14,7 @@ jobs:
       - run: echo "${{ github.workspace }}"
       - run: echo "${{ runner.os }}"
       - run: echo "${{ job.status }}"
-      - run: echo "${{ github.event }}"
+      - run: echo "${{ toJSON(github.event) }}"
       - run: echo "${{ env.APP }}"
 
   job2:
