@@ -35,7 +35,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: node show_secret.js
-      - run: npm i
+      - run: npm ci
       - uses: actions/cache@v3
         with:
           path: ~/.npm
