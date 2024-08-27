@@ -1,0 +1,25 @@
+name: basic2
+
+on:
+  label:
+    types:
+      - created
+  issue_comment:
+    types:
+      - created
+    labels:
+      - bug
+  push:
+    branches:
+      - main
+      - feature/*
+  workflow_dispatch:
+  repository_dispatch:
+    types: [build]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - run: ls
