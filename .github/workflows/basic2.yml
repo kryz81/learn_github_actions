@@ -12,6 +12,8 @@ on:
   push:
     branches:
       - feature/*
+    paths:
+      - 'show_secret.js'
   workflow_dispatch:
   repository_dispatch:
     types: [build]
