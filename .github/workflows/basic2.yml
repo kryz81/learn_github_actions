@@ -11,7 +11,6 @@ on:
       - bug
   push:
     branches:
-      - main
       - feature/*
   workflow_dispatch:
   repository_dispatch:
@@ -21,5 +20,5 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
     - run: ls
