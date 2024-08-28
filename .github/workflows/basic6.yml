@@ -1,0 +1,16 @@
+name: basic6
+
+on: workflow_dispatch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: node:20
+      env:
+        NODE_ENV: development
+      ports:
+        - 5000:5000
+    steps:
+      - name: node -v
+
