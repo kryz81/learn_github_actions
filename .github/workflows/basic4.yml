@@ -1,6 +1,10 @@
 name: basic4
 
-on: [workflow_dispatch, create]
+on:
+  workflow_dispatch:
+  create:
+  schedule:
+    - cron: '*/5 0 * * *'
 
 jobs:
     what:
