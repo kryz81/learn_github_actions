@@ -1,0 +1,15 @@
+name: basic5
+
+on:
+  workflow_dispatch:
+    inputs:
+      os:
+        description: os to run on
+        required: false
+        type: string
+
+jobs:
+    job1:
+      runs-on: [self-hosted, "${{ inputs.os || 'linux' }}"]
+      steps:
+        - run: echo 'Hello, World!'
