@@ -1,0 +1,10 @@
+name: basic3
+
+on: workflow_dispatch
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    if: github.repository == 'kryz81/learn_github_actions'
+    steps:
+      - run: echo "hello"
