@@ -1,0 +1,13 @@
+name: basic4
+
+on: workflow_dispatch
+
+jobs:
+    build:
+      runs-on: ubuntu-latest
+      outputs:
+        hash: ${{ steps.hash1.outputs.HASH }}
+      steps:
+        - uses: actions/checkout@v4
+        - run: echo "HASH=${{ hashFiles(test.txt) }}" >> $GITHUB_OUTPUT
+          id: hash1
