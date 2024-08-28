@@ -8,3 +8,11 @@ jobs:
     if: github.repository == 'kryz81/learn_github_actions'
     steps:
       - run: echo "hello"
+
+  job2:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 22
+      - run: node -v
