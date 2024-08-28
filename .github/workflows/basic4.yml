@@ -1,8 +1,13 @@
 name: basic4
 
-on: workflow_dispatch
+on: [workflow_dispatch, create]
 
 jobs:
+    what:
+      runs-on: ubuntu-latest
+      steps:
+        - run: echo "${{ github.ref }}"
+
     build:
       runs-on: ubuntu-latest
       outputs:
