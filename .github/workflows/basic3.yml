@@ -16,3 +16,6 @@ jobs:
         with:
           node-version: 22
       - run: node -v
+      - run: npm i
+      - run: npm i -g jest
+      - run: node test
