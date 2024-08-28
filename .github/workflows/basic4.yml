@@ -9,5 +9,5 @@ jobs:
         hash: ${{ steps.hash1.outputs.HASH }}
       steps:
         - uses: actions/checkout@v4
-        - run: echo "HASH=${{ hashFiles(test.txt) }}" >> $GITHUB_OUTPUT
+        - run: echo "HASH=${{ hashFiles('test.txt') }}" >> $GITHUB_OUTPUT
           id: hash1
