@@ -4,6 +4,12 @@ on: workflow_dispatch
 
 jobs:
   build:
+    strategy:
+      matrix:
+        node_version: [20, 22]
+        include:
+          - node_version: 18
+      fail-fast: false
     runs-on: ubuntu-latest
     container:
       image: node:20
