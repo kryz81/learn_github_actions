@@ -18,5 +18,5 @@ jobs:
       ports:
         - 5000:5000
     steps:
-      - name: node -v
+      - run: node -v
 
