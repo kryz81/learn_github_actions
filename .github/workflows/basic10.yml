@@ -1,0 +1,11 @@
+name: basic10
+
+on: workflow_dispatch
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - run: gh -h
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
