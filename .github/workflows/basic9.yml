@@ -29,6 +29,7 @@ jobs:
   use_composite:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
       - uses: ./.github/actions/print_ref
         with:
           title: ${{ github.ref }}
