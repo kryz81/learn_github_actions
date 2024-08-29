@@ -6,7 +6,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     outputs:
-      myhash: ${{ steps.hash.MY_HASH }}
+      myhash: ${{ steps.hash.outputs.MY_HASH }}
     steps:
       - run: echo "MY_HASH=!@#" >> $GITHUB_OUTPUT
         id: hash
