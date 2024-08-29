@@ -6,6 +6,6 @@ jobs:
   job1:
     runs-on: ubuntu-latest
     steps:
-      - run: gh -h
+      - run: gh repo -h
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
