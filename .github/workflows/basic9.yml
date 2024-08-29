@@ -25,3 +25,10 @@ jobs:
       - run: npm ci
         if: needs.build.outputs.cache_key != 'true'
       - run: npm test
+
+  use_composite:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: ./.github/actions/print_ref
+        with:
+          title: ${{ github.ref }}

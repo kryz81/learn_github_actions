@@ -1,0 +1,13 @@
+name: print ref
+
+inputs:
+  title:
+    required: true
+    description: title
+
+runs:
+  using: composite
+  steps:
+    - id: print
+      shell: bash
+      run: echo "${{ inputs.title }}"
