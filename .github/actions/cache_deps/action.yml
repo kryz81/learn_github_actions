@@ -1,0 +1,25 @@
+name: cache deps
+description: Caches dependencies
+
+inputs:
+  node_version:
+    required: true
+    description: node version to use
+    default: '20'
+
+runs:
+    using: composite
+    steps:
+      - name: setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ inputs.node_version }}
+      - name: cache deps
+        run: actions/cache@v3
+        shell: bash
+        with:
+          path: node_modules
+          key: cache_node_modules
+      - name: install deps
+        shell: bash
+        run: npm ci

@@ -1,0 +1,11 @@
+name: basic11
+
+on: workflow_dispatch
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: ./.github/actions/cache_deps
+        with:
+          node_version: '22'

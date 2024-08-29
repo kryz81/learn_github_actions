@@ -2,6 +2,9 @@ name: basic10
 
 on: workflow_dispatch
 
+permissions:
+  actions: write
+
 jobs:
   job1:
     runs-on: ubuntu-latest
