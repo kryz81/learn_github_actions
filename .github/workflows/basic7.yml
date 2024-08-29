@@ -1,0 +1,19 @@
+name: basic7
+
+on: workflow_dispatch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    outputs:
+      myhash: ${{ steps.hash.MY_HASH }}
+    steps:
+      - run: echo "MY_HASH=!@#" >> $GITHUB_OUTPUT
+        id: hash
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+      - run: echo "${{ needs.build.outputs.myhash }}"
