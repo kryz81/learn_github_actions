@@ -1,0 +1,6 @@
+name: dep update
+description: updates dependencies
+
+runs:
+  using: node20
+  main: index.js
