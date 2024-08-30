@@ -13,3 +13,7 @@ jobs:
       - run: echo "VERSION=2" >> $GITHUB_ENV
       - run: echo "$VERSION"
 
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "$VERSION"
