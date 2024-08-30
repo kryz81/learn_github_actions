@@ -8,13 +8,17 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
+    outputs:
+      updated_version: ${{ steps.updated_version.outputs.VERSION }}
     steps:
       - run: echo "$VERSION"
       - run: echo "VERSION=2" >> $GITHUB_ENV
       - run: echo "$VERSION"
+      - run: echo "VERSION=$VERSION" >> $GITHUB_OUTPUT
+        id: updated_version
 
   deploy:
     runs-on: ubuntu-latest
     needs: build
     steps:
-      - run: echo "$VERSION"
+      - run: echo "${{ needs.build.outputs.updated_version }}"
