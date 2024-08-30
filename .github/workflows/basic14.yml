@@ -13,3 +13,5 @@ jobs:
           path: ~/.npm
           key: npm_cache
       - run: echo "${{ steps.cache.outputs.cache-hit == 'true' }}"
+      - run: npm ci
+
