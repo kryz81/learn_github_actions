@@ -1,0 +1,17 @@
+name: basic13
+
+on: workflow_dispatch
+
+defaults:
+  run:
+    working-directory: ./
+    shell: bash
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    concurrency:
+      group: '1'
+      cancel-in-progress: true
+    steps:
+      - run: echo "1"
