@@ -1,0 +1,35 @@
+name: release
+
+on: workflow_dispatch
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+      - run: npm install
+      - run: tar -czvf app.tar.gz ./
+      - name: Create GitHub Release
+        id: create_release  # Step ID for referencing outputs
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Use the GitHub token to authenticate
+        with:
+          tag_name: ${{ github.ref }}  # Use the pushed tag as the release tag
+          release_name: Release ${{ github.ref }}  # Name of the release
+          body: |
+            This is an automatically generated release.
+          draft: false  # Set to true if you want the release to be a draft initially
+          prerelease: false  # Set to true if this is a prerelease
+      - name: Upload Release Asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}  # Use the upload URL from the previous step
+          asset_path: ./my-component.tar.gz  # Path to the asset file to upload
+          asset_name: my-component.tar.gz  # Name of the asset file
+          asset_content_type: application/gzip  # MIME type of the asset
